@@ -1,0 +1,22 @@
+<h1 class="text-primary mx-5">Here where are all the articles</h1>
+
+ <a class = "mx-5"><%= link_to "Create article", new_article_path %> </a>
+
+<table class="mx-5 my-5">
+<tr>
+    <th class = "text-danger">Title</th>
+    <th class = "text-danger">Description</th>
+</tr>
+
+<% @articles.each do |article|%>
+
+  <tr > 
+		<td class="py-2"> <%=article.title%>  </td>
+			<td class="py-2"> <%=article.description%></td>
+			<td class="py-2 pl-2"> <%= link_to 'Edit', edit_article_path(article) %> </td>
+			<td class="py-2 pl-2"> <%= link_to 'Show', article_path(article) %> </td>
+
+	 </tr>
+<%end%>
+
+</table>
