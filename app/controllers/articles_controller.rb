@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 #   require 'articles_helper'
 
-    before_action :article_find, only: [:edit, :update, :show, :destory]
+    before_action :article_find, only: [:destroy,:edit, :update, :show]
 
 def home
 end
@@ -41,7 +41,7 @@ end
 
     def destroy
         @article.delete
-        flash[:notice] = "Article with ID: #{params[:id]} was successfully deleted"
+        flash[:notice] = "Article #{params[:id]}  was successfully deleted"
         redirect_to articles_path
     end
 
