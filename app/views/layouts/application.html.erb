@@ -11,10 +11,11 @@
   </head>
  
   <body class="bg-white">
-<%= render 'layouts/navigation' %>
-<%= render 'layouts/messages' %>
-<div class="container">
-    <%= yield %>
-  </div>
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/messages' %>
+    <div class="container py-5">
+       <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
