@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-#   require 'articles_helper'
+
 
     before_action :article_find, only: [:destroy,:edit, :update, :show]
 
@@ -48,7 +48,6 @@ end
 
 
     private
-
     def article_find
         @article = Article.find(params[:id])
     end

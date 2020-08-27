@@ -1,18 +1,9 @@
-<% if @article.errors.any? %>
-<h2>This are the errors that prevented the article from being created</h2>
- <ul>
-    <% @article.errors.full_messages.each do |msg|%>
-       
-        <li  class="text-danger"><%=msg%></li>
-        
-    <%end%>
-</ul>
-<%end%>
+<%= render 'shared/errors',obj: @article %>
 
 <div class="row">
     <div class ="col-md-12">
       <div class="form-group row">
-        <%= form_for @article do |f|%>
+        <%= form_for( @article, :html => {class:"form-horizontal",role: "form"}) do |f|%>
          <%= f.label :title, class: "col-sm-2 col-form-label"%>
         <div class="col-sm-8">
 					<%= f.text_field :title, class: "form-control", placeholder: "Title of the article", autofocus: true %>
