@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 class User < ApplicationRecord
   has_many :articles
@@ -10,7 +9,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX }
-  validates :user_id, presence: true
+
+  # validates :user_id, presence: true
 
   has_secure_password
 end

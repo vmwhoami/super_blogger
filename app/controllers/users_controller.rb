@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 class UsersController < ApplicationController
   def new
@@ -6,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @user = User.new(private_params)
 
     if @user.save

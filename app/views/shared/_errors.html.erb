@@ -1,5 +1,7 @@
 <div class ="mt-5">
-    <% if @article.errors.any? %>
+
+
+    <% if obj.errors.any? %>
     <h2>This are the errors that prevented the article from being created</h2>
     <ul>
         <% @article.errors.full_messages.each do |msg|%>
