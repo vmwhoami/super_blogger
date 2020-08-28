@@ -1,4 +1,8 @@
 <h1  class="text-center mt-5 text-uppercase">All the articles </h1>
+
+
+
+
 <% @articles.each do |article|%>
   <div class = "row">
 			<div class = "card">
@@ -8,7 +12,7 @@
 			<div class="card-body">
 				<%= truncate(article.description,length: 100)%>
 				<small class="time"> Created at <%= article.created_at %></small>
-				<small class="time"> By: <%= article.user.username %></small>
+				<small class="time"> By: <%# article.user.username %></small>
 			</div>
 				<div class = "article-actions">
 					<%= link_to 'Edit article', edit_article_path(article), class: "btn btn-xs btn-primary" %> 
