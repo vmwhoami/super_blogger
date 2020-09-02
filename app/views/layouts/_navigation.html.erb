@@ -8,6 +8,7 @@
       <li class="nav-item active">
         <a class="nav-link" href= <%= root_path %> >Home <span class="sr-only">(current)</span></a>
       </li>
+       <% if logged_in? %>
       <li class="nav-item">
         <a class="nav-link" href=<%= new_article_path %> >New article</a>
       </li>
@@ -17,8 +18,17 @@
     
     
     </ul>
-       <a class="nav-link ml-auto p-2" href=<%= login_path %> >Log in</a>
-    
+  
+
+<%= link_to 'Logout', logout_path, method: :delete, class: "text-white mr-5" %>
+
+
+<%else%>
+<ul class = "d-flex align-items-center">
+<%= link_to 'Log in', login_path, class: "text-white mr-5" %>
+<%= link_to 'Sign up', signup_path, class: "text-white mr-5" %>
+</ul>
+  <%end%>
   </div>
 </nav>
 
