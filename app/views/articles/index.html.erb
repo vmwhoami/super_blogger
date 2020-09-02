@@ -1,5 +1,10 @@
 <h1  class="text-center mt-5 text-uppercase">All the articles </h1>
 
+
+<%= will_paginate @articles, list_classes: %w(pagination justify-content-center my-5) %>
+
 <%= render 'article', obj:@articles %>
 
+
+<%= will_paginate @articles, list_classes: %w(pagination justify-content-center my-5) %>
 
