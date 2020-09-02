@@ -1,4 +1,6 @@
 <h1 align= "center">All users</h1>
+
+<%= will_paginate @articles, list_classes: %w(pagination justify-content-center my-5) %>
 <% @users.each do |user|%>
 
 
@@ -18,5 +20,5 @@
 
 
 
-
 <%end%>
+<%= will_paginate @articles, list_classes: %w(pagination justify-content-center my-5) %>
