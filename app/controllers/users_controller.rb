@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
  
 before_action :find_user, only: [:edit, :update, :show]
-
+before_action :private_user, only:[:edit, :update]
  def index
   @users = User.paginate(page:params[:page], per_page: 3)
  end
@@ -43,6 +43,13 @@ before_action :find_user, only: [:edit, :update, :show]
   end
 
   private
+def private_user
+if @user!= current_user
+  flash[:danger] = "you can update only your profile"
+  redirect_to root_path
+end
+end
+
 def find_user
   @user = User.find(params[:id])
 end

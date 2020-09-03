@@ -3,6 +3,11 @@
 class ArticlesController < ApplicationController
   before_action :article_find, only: %i[destroy edit update show]
 
+  before_action :require_user,  only: [:edit, :delete, :update, :new]
+  
+  before_action :require_same_user, only: %i[destroy edit update]
+
+
   def home
     redirect_to articles_path if logged_in?
      end
@@ -17,7 +22,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       flash[:notice] = 'Article was successfully created'
       redirect_to article_path(@article)
@@ -47,6 +52,12 @@ class ArticlesController < ApplicationController
   end
 
   private
+ def require_same_user
+  if current_user != @article.user
+    flash[:danger] = "You can edit only your own article"
+    redirect_to root_path
+  end
+ end
 
   def article_find
     @article = Article.find(params[:id])
