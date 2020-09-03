@@ -3,7 +3,9 @@
 class ArticlesController < ApplicationController
   before_action :article_find, only: %i[destroy edit update show]
 
-  def home; end
+  def home
+    redirect_to articles_path if logged_in?
+     end
 
   def index
     @articles = Article.paginate(page:params[:page], per_page: 3)

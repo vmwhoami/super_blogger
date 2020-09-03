@@ -73,6 +73,8 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    ckeditor (5.1.0)
+      orm_adapter (~> 0.5.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     erubi (1.9.0)
@@ -99,6 +101,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     pg (1.1.4-x64-mingw32)
     public_suffix (4.0.5)
     puma (4.3.5)
@@ -199,6 +202,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  ckeditor
   jbuilder (~> 2.7)
   pg (= 1.1.4)
   puma (~> 4.1)

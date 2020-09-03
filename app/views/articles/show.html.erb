@@ -20,5 +20,8 @@
 <%= link_to 'All articles', articles_path %>
 <p>
 <p class= "mx-5">
+<% if logged_in? && current_user == @article.user %>
 <%= link_to 'edit', edit_article_path %>
+<%= link_to  'delete', article_path, method: :delete %>
+<%end%>
 <p>

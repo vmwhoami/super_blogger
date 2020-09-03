@@ -4,5 +4,7 @@
 <h1 >Welcome to my blog</h1>
 
 <%= link_to 'All articles', articles_path %>
-
+<% if !logged_in? %>
+<%= link_to 'sign up', signup_path, class: "btn btn-sm btn-danger" %>
+<%end%>
 </div>

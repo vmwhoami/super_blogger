@@ -9,18 +9,17 @@
         <a class="nav-link" href= <%= root_path %> >Home <span class="sr-only">(current)</span></a>
       </li>
        <% if logged_in? %>
-      <li class="nav-item">
-        <a class="nav-link" href=<%= new_article_path %> >New article</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href=<%= articles_path %> >Articles</a>
-      </li>
-    
-    
-    </ul>
-  
+                <li class="nav-item">
+                  <a class="nav-link" href=<%= new_article_path %> >New article</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href=<%= articles_path %> >Articles</a>
+                </li>
+                </ul>
 
-<%= link_to 'Logout', logout_path, method: :delete, class: "text-white mr-5" %>
+          <%= link_to 'Logout', logout_path, method: :delete, class: "text-white mr-5" %>
+          <%= link_to 'Edit your profile', edit_user_path(current_user), class: "text-white mr-5" %>
+          <%= link_to 'View your profile', user_path(current_user), class: "text-white mr-5" %>
 
 
 <%else%>
