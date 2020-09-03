@@ -16,8 +16,9 @@ before_action :private_user, only:[:edit, :update]
     @user = User.new(private_params)
 
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome #{@user.username}"
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -38,8 +39,12 @@ before_action :private_user, only:[:edit, :update]
   end
 
   def show
-  
     @user_articles = @user.articles.paginate(page:params[:page], per_page: 3)
+  end
+
+  def destroy
+    @user = find_user
+    @user.destroy
   end
 
   private
