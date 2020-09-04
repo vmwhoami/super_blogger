@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
   def home
     redirect_to articles_path if logged_in?
-     end
+  end
 
   def index
     @articles = Article.paginate(page:params[:page], per_page: 3)
